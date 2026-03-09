@@ -33,24 +33,21 @@ let button = document.getElementById("generateBtn");
 button.onclick = function() {
     let phrase = generatePhrase();
 
-    // Display the phrase
     phraseDisplay.textContent = phrase.verb + " my " + phrase.noun;
 
-    // Create one audio object per word
     let verbSound = new Audio("Verbs/" + phrase.verb + ".wav");
     let mySound = new Audio("my.wav");
     let nounSound = new Audio("Nouns/" + phrase.noun + ".wav");
 
-    // Chain them — each plays only after the previous one ends
-verbSound.play();
-verbSound.onended = function() {
-    setTimeout(function() {
-        mySound.play();
-        mySound.onended = function() {
-            setTimeout(function() {
-             nounSound.play();
-            }, 50);
-        }
-    }, 50);
-}
+    verbSound.play();
+    verbSound.onended = function() {
+        setTimeout(function() {
+            mySound.play();
+            mySound.onended = function() {
+                setTimeout(function() {
+                    nounSound.play();
+                }, 50);
+            }
+        }, 50);
+    }
 }
