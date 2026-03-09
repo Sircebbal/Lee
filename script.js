@@ -48,7 +48,7 @@ verbSound.onended = function() {
         mySound.play();
         mySound.onended = function() {
             setTimeout(function() {
-                nounSound.play();
+             nounSound.play();
             }, 50);
         }
     }, 50);
