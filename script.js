@@ -53,3 +53,4 @@ verbSound.onended = function() {
         }
     }, 50);
 }
+}
